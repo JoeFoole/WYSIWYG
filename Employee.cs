@@ -1,10 +1,11 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System;
 
 namespace WYSIWYG
 {
     class Employee
     {
+        [Serializable]
         public class EmployeeInfo
         {
             public string FirstName { get; set; }
@@ -74,6 +75,7 @@ namespace WYSIWYG
             }
         }            
 
+        [Serializable]
         public class TimeSlip : EmployeeInfo
         {
             public double RegularHours { get; set; }
@@ -87,6 +89,7 @@ namespace WYSIWYG
             public double WorkmansComp => State.WorkmansComp(RegularHours + OverTimeHours) / 2;
             public double FederalWithholding { get; set; }
             public double StateWithholding { get; set; }
+            public double StateTransitTax => GrossWage * 0.001;
             public double SUTA { get; set; }
             public double FUTA { get; set; }
 

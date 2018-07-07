@@ -24,10 +24,10 @@ public class PrintingExample : Form
         try
         {
             streamToPrint = new StreamReader
-               ("C:\\Users\\Thom\\Documents\\ReadMe.txt");
+               ("D:\\WYSIWYG\\WYSIWYG\\bin\\Debug\\Summary.txt");
             try
             {
-                printFont = new Font("Arial", 10);
+                printFont = new Font("Courier New", 9, FontStyle.Bold);
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler
                    (this.pd_PrintPage);
@@ -99,8 +99,8 @@ public class PrintingExample : Form
     }
 
     // This is the main entry point for the application. 
-    //public static void Main(string[] args)
-    //{
-    //    Application.Run(new PrintingExample());
-    //}
+    public static void WorksheetPrint()
+    {
+        Application.Run(new PrintingExample());
+    }
 }

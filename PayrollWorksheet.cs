@@ -23,7 +23,7 @@ namespace WYSIWYG
                 
             string entry;
             Console.Write("{0,8} {1,-9}    ", "Employee", "Name");
-            Console.Write("Gross   Reg     OT         SS      Medicare      FWH        SWH       WC");
+            Console.Write("Reg     OT        Gross       SS      Medicare      FWH        SWH       STT        WC         Net");
             Console.Write("\n\n");
 
             foreach (var employee in employeeList)
@@ -70,10 +70,13 @@ namespace WYSIWYG
                 Console.Write("{0,-9:C2}  ", employee.Value.Medicare);
                 Console.Write("{0,-9:C2}  ", employee.Value.FederalWithholding);
                 Console.Write("{0,-9:C2}  ", employee.Value.StateWithholding);
+                Console.Write("{0,-9:C2}  ", employee.Value.StateTransitTax);
                 Console.Write("{0,-9:C2}  ", employee.Value.WorkmansComp);
                 Console.Write("{0,-9:C2}  ", employee.Value.NetWage);
                 Console.Write("\n\n");
             }
+            FileIO.Save(employeeList, "Temp.txt");
+            Serializing.Serial();
             WorksheetSummary.Summary(employeeList);
         }
     }
